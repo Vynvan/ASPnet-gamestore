@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Api", "GameStore.Api\GameStore.Api.csproj", "{7891FD1B-6E7C-45B8-A45E-8087D19CACB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamestore.Frontend", "Gamestore.Frontend\Gamestore.Frontend.csproj", "{349FCED2-470B-DC91-5E95-E62E64B5FD88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Frontend", "GameStore.Frontend\Gamestore.Frontend.csproj", "{349FCED2-470B-DC91-5E95-E62E64B5FD88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
