@@ -1,3 +1,7 @@
 GameStore.Api/bin
 GameStore.Api/obj
 GameStore.Api/GameStore.db
+GameStore.Api/GameStore.db-shm
+GameStore.Api/GameStore.db-wal
+GameStore.Frontend/bin
+GameStore.Frontend/obj
