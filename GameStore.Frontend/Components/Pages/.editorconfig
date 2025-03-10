@@ -1,0 +1,5 @@
+root = true
+
+[*.razor]
+indent_size = 3
+indent_style = space

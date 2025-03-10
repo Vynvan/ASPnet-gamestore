@@ -1,0 +1,11 @@
+{
+   "files.associations": {
+       "*.razor": "razor"
+   },
+   "[razor]": {
+       "editor.formatOnSave": true
+   },
+   "editor.formatOnSave": {
+      "C:\\Users\\MArndt\\OneDrive - Comhard GmbH\\.NET\\Blazor\\ASPnet-gamestore\\GameStore.Frontend\\Components\\Pages\\Home.razor": false
+  }
+}
