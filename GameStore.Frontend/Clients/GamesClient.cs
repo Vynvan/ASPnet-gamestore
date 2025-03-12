@@ -1,4 +1,3 @@
-using System;
 using GameStore.Frontend.Models;
 
 namespace GameStore.Frontend.Clients;
@@ -30,5 +29,23 @@ public class GamesClient
       }
    ];
 
+   private readonly Genre[] genres = new GenreClient().GetGenres();
+
    public GameSummary[] GetGames() => [.. games];
+
+   public void AddGame(GameDetails game)
+   {
+      ArgumentException.ThrowIfNullOrWhiteSpace(game.GenreId);
+      var genre = genres.Single(g => g.Id == int.Parse(game.GenreId));
+
+      var summary = new GameSummary
+      {
+         Id = games.Count + 1,
+         Name = game.Name,
+         Genre = genre.Name,
+         Prize = game.Prize,
+         ReleaseDate = game.ReleaseDate
+      };
+      games.Add(summary);
+   }
 }
