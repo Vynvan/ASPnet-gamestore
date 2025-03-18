@@ -16,7 +16,7 @@ else
 {
    <div class="row">
       <div class="col-md-4">
-         <EditForm Model="@game" FormName="editGame" OnValidSubmit="HandleSubmit">
+         <EditForm Model="@game" FormName="editGame" OnValidSubmit="HandleSubmitAsync">
             <DataAnnotationsValidator />
             <ValidationSummary />
             <div class="mb-3">
@@ -36,9 +36,9 @@ else
                <ValidationMessage For="() => game.GenreId" />
             </div>
             <div class="mb-3">
-               <label for="prize">Prize:</label>
-               <InputNumber id="prize" @bind-Value="game.Prize" class="form-control" />
-               <ValidationMessage For="() => game.Prize" />
+               <label for="price">Price:</label>
+               <InputNumber id="price" @bind-Value="game.Price" class="form-control" />
+               <ValidationMessage For="() => game.Price" />
             </div>
             <div class="mb-3">
                <label for="releaseDate">Release Date:</label>
@@ -63,7 +63,7 @@ else
    private string title { get; set; } = "New Game";
 
 
-   protected override void OnParametersSet()
+   protected override async Task OnParametersSetAsync()
    {
       if (game is not null)
       {
@@ -72,7 +72,7 @@ else
 
       if (Id.HasValue)
       {
-         game = GamesClient.GetGame(Id.Value);
+         game = await GamesClient.GetGameAsync(Id.Value);
          title = $"Edit: {game.Name}";
       }
       else
@@ -86,24 +86,24 @@ else
    }
 
 
-   protected override void OnInitialized()
+   protected override async Task OnInitializedAsync()
    {
-      genres = GenreClient.GetGenres();
+      genres = await GenreClient.GetGenresAsync();
    }
 
 
-   private void HandleSubmit()
+   private async Task HandleSubmitAsync()
    {
       ArgumentNullException.ThrowIfNull(game);
 
       if (Id is null)
       {
-         GamesClient.AddGame(game);
+         await GamesClient.AddGameAsync(game);
       }
       else
       {
          game.Id = Id.Value;
-         GamesClient.UpdateGame(game);
+         await GamesClient.UpdateGameAsync(game);
       }
 
       NavigationManager.NavigateTo("/");

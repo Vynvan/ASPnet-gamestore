@@ -29,7 +29,7 @@ else
                <td>@game.Id</td>
                <td>@game.Name</td>
                <td>@game.Genre</td>
-               <td class="text-end">@game.Prize</td>
+               <td class="text-end">@game.Price</td>
                <td>@game.ReleaseDate</td>
                <td>
                   <div class="d-flex">
@@ -59,9 +59,9 @@ else
 @code {
    private GameSummary[]? games;
 
-   protected override void OnInitialized()
+   protected override async Task OnInitializedAsync()
    {
-      games = GamesClient.GetGames();
+      games = await GamesClient.GetGamesAsync();
    }
 
    private static string GameUrl(int id) => $"/editgame/{id}";
