@@ -1,8 +1,8 @@
 {
-   "files.associations": {
-       "*.razor": "razor"
-   },
-   "[razor]": {
-       "editor.formatOnSave": true
-   }
+  "files.associations": {
+    "*.razor": "aspnetcorerazor"
+  },
+  "[razor]": {
+    "editor.formatOnSave": true
+  }
 }
